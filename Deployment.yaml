@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,4 +29,19 @@ spec:
     matchLables:
       app: prathamesh
   strategy:
-    type: RollingUpdate           
+    type: RollingUpdate
+...
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: prathamesh-svc
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+selector:
+  app: prathamesh
+...
