@@ -2,18 +2,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prathamesh-dep
-  lables:
+  name: my-deployment
+  labels:
     app: prathamesh
 spec:
   template:
     metadata:
-      name: temp-for-hpa
-      lables:
+      labels:
         app: prathamesh
     spec:
       containers:
-        - name: hpa-containers
+        - name: my-container
           image: httpd
           ports:
             - containerPort: 80
@@ -26,22 +25,21 @@ spec:
               memory: 200Mi
   replicas: 3
   selector:
-    matchLables:
+    matchLabels:
       app: prathamesh
   strategy:
     type: RollingUpdate
 ...
-
 ---
 apiVersion: v1
 kind: Service
-metadata: 
-  name: prathamesh-svc
+metadata:
+  name: my-svc
 spec:
   ports:
     - port: 80
-      protocol: TCP
       targetPort: 80
-selector:
-  app: prathamesh
+      protocol: TCP
+  selector:
+    app: prathamesh
 ...
