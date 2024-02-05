@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prathamesh-dep
+  lables:
+    app: prathamesh
+spec:
+  template:
+    metadata:
+      name: temp-for-hpa
+      lables:
+        app: prathamesh
+    spec:
+      containers:
+        - name: hpa-containers
+          image: httpd
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 200m
+              memory: 100Mi
+            limits:
+              cpu: 400m
+              memory: 200Mi
+  replicas: 3
+  selector:
+    matchLables:
+      app: prathamesh
+  strategy:
+    type: RollingUpdate           
