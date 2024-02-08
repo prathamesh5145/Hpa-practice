@@ -1,0 +1,7 @@
+appVersion: v1
+kind: configMap
+metadata:
+  name: database-cred
+data: 
+  DB_PASSWORD: "prathamesh5145"
+  DB_USER: "prathamesh"
