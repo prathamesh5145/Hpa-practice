@@ -1,7 +1,7 @@
-appVersion: v1
+apiVersion: v1
 kind: ConfigMap
-metadata:
-  name: database-cred
-data: 
+metadata: 
+  name: prathamesh-creds
+data:
   DB_PASSWORD: "prathamesh5145"
   DB_USER: "prathamesh"
