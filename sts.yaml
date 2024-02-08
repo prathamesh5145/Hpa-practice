@@ -6,26 +6,26 @@ metadata:
     app: config
 spec:
   template:
-    name: prathamesh
-    lables:
-      app: config
-  spec:
-    containers:
-      - name: pc
-        image: mysql
-        ports:
-          - containerPort: 3306
-        env:
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: database-cred
-                key: DB_PASSWORD
-          - name: USER_NAME
-            valurFrom:
-              configMapKeyRef:
-                name: database-cred
-                key: DB_USERNAME
+    metadata:
+      lables:
+        app: config
+    spec:
+      containers:
+        - name: pc
+          image: mysql
+          ports:
+            - containerPort: 3306
+         env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: database-cred
+                  key: DB_PASSWORD
+            - name: USER_NAME
+              valurFrom:
+                configMapKeyRef:
+                  name: database-cred
+                  key: DB_USERNAME
   replicas: 3
   seletor:
     matchLabels:
