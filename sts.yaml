@@ -7,7 +7,7 @@ metadata:
 spec:
   template:
     metadata:
-      lables:
+      labels:
         app: config
     spec:
       containers:
@@ -22,11 +22,11 @@ spec:
                   name: database-cred
                   key: DB_PASSWORD
             - name: USER_NAME
-              valurFrom:
+              valueFrom:
                 configMapKeyRef:
                   name: database-cred
                   key: DB_USERNAME
   replicas: 3
-  seletor:
+  selector:
     matchLabels:
       app: config              
