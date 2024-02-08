@@ -19,13 +19,13 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 configMapKeyRef:
-                  name: database-cred
+                  name: prathamesh-creds
                   key: DB_PASSWORD
             - name: USER_NAME
               valueFrom:
                 configMapKeyRef:
-                  name: database-cred
-                  key: DB_USERNAME
+                  name: prathamesh-creds
+                  key: DB_USER
   replicas: 3
   selector:
     matchLabels:
